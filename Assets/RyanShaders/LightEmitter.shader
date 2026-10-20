@@ -4,16 +4,21 @@ Shader "Custom/LightEmitter"
     {
         [MainColor] _BaseColor("Base Color", Color) = (1, 1, 1, 1)
         [MainTexture] _BaseMap("Base Map", 2D) = "white" {}
+        [HDR] _GlowColor("Glow Color", Color) = (1,1,1,1)
+        _GlowIntensity("Glow Intensity", Float) = 0
     }
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
-
+        Tags { "RenderType" = "Transparent" "Queue" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcalpha
+        
         Pass
         {
             HLSLPROGRAM
 
+            
             #pragma vertex vert
             #pragma fragment frag
 
@@ -37,6 +42,8 @@ Shader "Custom/LightEmitter"
             CBUFFER_START(UnityPerMaterial)
                 half4 _BaseColor;
                 float4 _BaseMap_ST;
+                float _GlowIntensity;
+                float4 _GlowColor;
             CBUFFER_END
 
             Varyings vert(Attributes IN)
@@ -50,7 +57,9 @@ Shader "Custom/LightEmitter"
             half4 frag(Varyings IN) : SV_Target
             {
                 half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
-                return color;
+                half4 glowColor = _GlowColor * _GlowIntensity;
+                half4 finalColor = color * glowColor;
+                return half4(finalColor.rgb, 0.5);
             }
             ENDHLSL
         }
