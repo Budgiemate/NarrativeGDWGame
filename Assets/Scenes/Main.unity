@@ -575,6 +575,11 @@ MonoBehaviour:
   isShooting: 1
   sniperSlot: {fileID: 889465061}
   regularSlot: {fileID: 1610296770}
+  sensitivity: 2
+  minPitch: -10
+  maxPitch: 50
+  minYaw: 270
+  maxYaw: 330
 --- !u!1 &405509028
 GameObject:
   m_ObjectHideFlags: 0
