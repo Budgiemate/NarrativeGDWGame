@@ -17,6 +17,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         SwapToRegularView();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
