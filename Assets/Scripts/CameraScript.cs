@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CameraScript : MonoBehaviour
 {
@@ -11,9 +13,12 @@ public class CameraScript : MonoBehaviour
     public float minYaw = 250f;         // Angle limiter for left view
     public float maxYaw = 310f;         // Angle limiter for right views
     private float pitch = 30f;          // vertical view 
+    private float drunkPitch = 30f;          // vertical view 
     private float yaw = 280f;           // horizontal view
+    private float drunkYaw = 280f;           // horizontal view
     private float mouseX;           
     private float mouseY;
+    public float drunkMultiplier;
     void Start()
     {
         SwapToRegularView();
@@ -34,11 +39,15 @@ public class CameraScript : MonoBehaviour
         // Apply limiter so camera can't be rotated past max or min
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
         yaw = Mathf.Clamp(yaw, minYaw, maxYaw);
+        /*drunkPitch = Mathf.Clamp(Random.Range(0,drunkMultiplier), minPitch, maxPitch);
+        drunkYaw = Mathf.Clamp(Random.Range(0,drunkMultiplier), minYaw, maxYaw);*/
         
         // If in sniper position apply rotations
         if (isShooting)
         {
             transform.localRotation = Quaternion.Euler(pitch, yaw, 0f);
+            /*transform.localRotation = Quaternion.Euler(drunkPitch, drunkYaw, 0f);*/
+            
         }
         
         
