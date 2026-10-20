@@ -7,6 +7,7 @@ public class CameraScript : MonoBehaviour
     public bool isShooting;
     public GameObject sniperSlot;
     public GameObject regularSlot;
+    public GameObject scope;
     public float sensitivity = 2.0f;    // Mouse speed
     public float minPitch = -10f;       // Angle limiter for bottom view
     public float maxPitch = 50f;        // Angle limiter for top view
@@ -32,9 +33,10 @@ public class CameraScript : MonoBehaviour
         mouseX = Input.GetAxis("Mouse X") * sensitivity; 
         mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-        // Set the vertical on horizontal to the correct pos or neg of the mouse so it tracks
-        pitch -= mouseY;
-        yaw += mouseX;
+        
+        if (isShooting)
+        {
+        }
         
         // Apply limiter so camera can't be rotated past max or min
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
@@ -42,9 +44,13 @@ public class CameraScript : MonoBehaviour
         /*drunkPitch = Mathf.Clamp(Random.Range(0,drunkMultiplier), minPitch, maxPitch);
         drunkYaw = Mathf.Clamp(Random.Range(0,drunkMultiplier), minYaw, maxYaw);*/
         
-        // If in sniper position apply rotations
+        // If in sniper position... 
         if (isShooting)
         {
+            // Set the vertical on horizontal to the correct pos or neg of the mouse so it tracks
+            pitch -= mouseY;
+            yaw += mouseX;
+            //apply rotations
             transform.localRotation = Quaternion.Euler(pitch, yaw, 0f);
             /*transform.localRotation = Quaternion.Euler(drunkPitch, drunkYaw, 0f);*/
             
@@ -54,7 +60,6 @@ public class CameraScript : MonoBehaviour
         
         if (isShooting && Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log("AGGGGG");
             SwapToRegularView();
         }
         else if (!isShooting && Input.GetKeyDown(KeyCode.Tab))
@@ -64,13 +69,14 @@ public class CameraScript : MonoBehaviour
     }
     public void SwapToSniperView()
     {
+        scope.SetActive(true);
         transform.position = sniperSlot.transform.position;
         transform.rotation = sniperSlot.transform.rotation;
         isShooting = true;
     }
     public void SwapToRegularView()
     {
-        Debug.Log("AGGGGG");
+        scope.SetActive(false);
         transform.position = regularSlot.transform.position;
         transform.rotation = regularSlot.transform.rotation;
         isShooting = false;
