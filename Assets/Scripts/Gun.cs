@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    GameObject victim;
     void Update()
     {
-        
+        // Create a ray from the object's position in its forward direction
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        // Cast the ray up to 100 units
+        if (Physics.Raycast(ray, out hit, 100f))
+        {
+            Debug.Log("Hit object: " + hit.collider.gameObject.name);
+            if (hit.collider.CompareTag("Victim"))
+            {
+                hit.collider.gameObject.GetComponent<Target>().target = true;
+                victim = hit.collider.gameObject;
+            }
+            else
+            {
+                victim.GetComponent<Target>().target = false;
+            }
+        }
     }
 }

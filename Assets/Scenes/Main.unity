@@ -131,9 +131,10 @@ GameObject:
   - component: {fileID: 109347867}
   - component: {fileID: 109347866}
   - component: {fileID: 109347865}
+  - component: {fileID: 109347869}
   m_Layer: 0
   m_Name: 'Kindergarden Teacher '
-  m_TagString: Untagged
+  m_TagString: Victim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +187,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 57d56a2d20371ce44966ecc87f9e5f41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,6 +234,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &109347869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109347864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c8b47451fb74e4a9a3473c16b68b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Target
+  highlight: {fileID: 2100000, guid: 57d56a2d20371ce44966ecc87f9e5f41, type: 2}
+  normal: {fileID: 2100000, guid: 43811c011aa2a59479d22f2ad2012d38, type: 2}
+  target: 0
 --- !u!1 &274435497
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,9 +261,10 @@ GameObject:
   - component: {fileID: 274435500}
   - component: {fileID: 274435499}
   - component: {fileID: 274435498}
+  - component: {fileID: 274435502}
   m_Layer: 0
   m_Name: MR BOAST
-  m_TagString: Untagged
+  m_TagString: Victim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +317,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 57d56a2d20371ce44966ecc87f9e5f41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -347,6 +364,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274435502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274435497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c8b47451fb74e4a9a3473c16b68b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Target
+  highlight: {fileID: 2100000, guid: 57d56a2d20371ce44966ecc87f9e5f41, type: 2}
+  normal: {fileID: 2100000, guid: 43811c011aa2a59479d22f2ad2012d38, type: 2}
+  target: 0
 --- !u!1 &277078710
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +467,7 @@ GameObject:
   - component: {fileID: 316387594}
   - component: {fileID: 316387597}
   - component: {fileID: 316387598}
+  - component: {fileID: 316387599}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -581,6 +614,19 @@ MonoBehaviour:
   maxPitch: 50
   minYaw: 270
   maxYaw: 330
+  drunkMultiplier: 0
+--- !u!114 &316387599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316387593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d711ac919ce6543806d2e2f4cc9b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
 --- !u!1 &405509028
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,9 +1013,10 @@ GameObject:
   - component: {fileID: 1182510894}
   - component: {fileID: 1182510893}
   - component: {fileID: 1182510892}
+  - component: {fileID: 1182510896}
   m_Layer: 0
   m_Name: The Queen
-  m_TagString: Untagged
+  m_TagString: Victim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1022,7 +1069,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 57d56a2d20371ce44966ecc87f9e5f41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1069,6 +1116,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1182510896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182510891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c8b47451fb74e4a9a3473c16b68b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Target
+  highlight: {fileID: 2100000, guid: 57d56a2d20371ce44966ecc87f9e5f41, type: 2}
+  normal: {fileID: 2100000, guid: 43811c011aa2a59479d22f2ad2012d38, type: 2}
+  target: 0
 --- !u!1001 &1524850915
 PrefabInstance:
   m_ObjectHideFlags: 0
