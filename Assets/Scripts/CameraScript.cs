@@ -79,7 +79,6 @@ public class CameraScript : MonoBehaviour
         transform.position = sniperSlot.transform.position;
         transform.rotation = sniperSlot.transform.rotation;
         isShooting = true;
-        gameObject.GetComponent<Gun>().hasShot = false;
     }
     public void SwapToRegularView()
     {
@@ -88,12 +87,5 @@ public class CameraScript : MonoBehaviour
         transform.rotation = regularSlot.transform.rotation;
         isShooting = false;
     }
-<<<<<<< Updated upstream
     
-=======
-    public void SwapToBulletView()
-    {
-        scope.SetActive(false);
-    }
->>>>>>> Stashed changes
 }
