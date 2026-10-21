@@ -83,10 +83,11 @@ public class CameraScript : MonoBehaviour
     }
     public void SwapToRegularView()
     {
+        isShooting = false;
         scope.SetActive(false);
         transform.position = regularSlot.transform.position;
-        transform.rotation = regularSlot.transform.rotation;
-        isShooting = false;
+        transform.localRotation = regularSlot.transform.localRotation;
+        
     }
     public void SwapToBulletView()
     {

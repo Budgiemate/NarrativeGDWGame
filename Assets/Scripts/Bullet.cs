@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     bool isMoving = true;
     public GameObject bulletMesh;
+    private CameraScript cam;
     public float bulletSpeed;
     public float bulletRotateSpeed;
     public GameObject MainCam;
@@ -14,14 +15,16 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         MainCam = GameObject.Find("Main Camera");
+        cam = MainCam.GetComponent<CameraScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MainCam.transform.LookAt(transform.position);
+        
         if (isMoving)
         {
+            MainCam.transform.LookAt(transform.position);   
             MainCam.transform.position = new Vector3(transform.position.x + camX, transform.position.y + camY, transform.position.z + camZ);
             transform.position += transform.forward * Time.deltaTime*bulletSpeed;
             bulletMesh.transform.Rotate(new Vector3(0, bulletRotateSpeed, 0  * Time.deltaTime));
@@ -40,7 +43,7 @@ public class Bullet : MonoBehaviour
             }
             else if (collision.collider.name == "The Queen")
             {
-                SceneSwapper.NextScene(3);
+                cam.SwapToRegularView();
             }
             else if (collision.collider.name == "Kindergarden Teacher ")
             {
