@@ -24,6 +24,7 @@ public class CameraScript : MonoBehaviour
     {
         SwapToRegularView();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -33,10 +34,6 @@ public class CameraScript : MonoBehaviour
         mouseX = Input.GetAxis("Mouse X") * sensitivity; 
         mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-        
-        if (isShooting)
-        {
-        }
         
         // Apply limiter so camera can't be rotated past max or min
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
@@ -60,7 +57,7 @@ public class CameraScript : MonoBehaviour
         
         if (isShooting && Input.GetKeyDown(KeyCode.Tab))
         {
-            SwapToRegularView();
+           // SwapToRegularView();
         }
         else if (!isShooting && Input.GetKeyDown(KeyCode.Tab))
         {
