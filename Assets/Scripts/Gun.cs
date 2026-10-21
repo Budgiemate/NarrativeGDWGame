@@ -3,6 +3,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     GameObject victim;
+    public GameObject bulletPrefab;
+    public bool hasShot = true;
     void Update()
     {
         // Create a ray from the object's position in its forward direction
@@ -22,6 +24,12 @@ public class Gun : MonoBehaviour
             {
                 victim.GetComponent<Target>().target = false;
             }
+        }
+        if (Input.GetMouseButtonDown(0) && !hasShot)
+        {
+            hasShot = true;
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+            gameObject.GetComponent<CameraScript>().SwapToBulletView();
         }
     }
 }
