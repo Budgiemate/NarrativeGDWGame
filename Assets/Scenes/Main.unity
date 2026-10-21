@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78d47a210a2ea4b96a4b51345f345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeIn
+  mainCam: {fileID: 0}
 --- !u!1 &109347864
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +708,6 @@ MonoBehaviour:
   maxPitch: 50
   minYaw: 270
   maxYaw: 330
-  drunkMultiplier: 0
 --- !u!114 &316387599
 MonoBehaviour:
   m_ObjectHideFlags: 0
