@@ -207,7 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78d47a210a2ea4b96a4b51345f345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeIn
+<<<<<<< Updated upstream
   mainCam: {fileID: 0}
+=======
+  mainCam: {fileID: 316387593}
+>>>>>>> Stashed changes
 --- !u!1 &109347864
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d711ac919ce6543806d2e2f4cc9b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 2492432594230866504, guid: 4d36691979c5f8e4080237cb4f17cdec, type: 3}
+  hasShot: 1
 --- !u!1 &405509028
 GameObject:
   m_ObjectHideFlags: 0
