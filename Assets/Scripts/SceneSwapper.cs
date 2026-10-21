@@ -20,7 +20,7 @@ public class SceneSwapper : MonoBehaviour
     }
     public static void NextScene(int sceneNum)
     {
-
+        SceneManager.LoadScene(sceneNum);
     }
     public void Exit()
     {

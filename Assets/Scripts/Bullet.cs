@@ -29,8 +29,28 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("NOOOO");
-        isMoving = false;
-        bulletMesh.SetActive(false);
+        if (collision.collider.CompareTag("Victim"))
+        {
+            Debug.Log("NOOOO");
+            isMoving = false;
+            bulletMesh.SetActive(false);
+            if (collision.collider.name == "MR BOAST")
+            {
+                SceneSwapper.NextScene(2);
+            }
+            else if (collision.collider.name == "The Queen")
+            {
+                SceneSwapper.NextScene(3);
+            }
+            else if (collision.collider.name == "Kindergarden Teacher ")
+            {
+                SceneSwapper.NextScene(4);
+            }
+        }
+        else
+        {
+            SceneSwapper.NextScene(5);
+        }
+        
     }
 }

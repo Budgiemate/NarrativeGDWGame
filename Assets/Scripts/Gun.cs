@@ -30,6 +30,7 @@ public class Gun : MonoBehaviour
             hasShot = true;
             Instantiate(bulletPrefab, transform.position, transform.rotation);
             gameObject.GetComponent<CameraScript>().SwapToBulletView();
+            
         }
     }
 }
