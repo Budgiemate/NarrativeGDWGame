@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
 
         // Cast the ray up to 100 units
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, 100f) && !hasShot)
         {
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             if (hit.collider.CompareTag("Victim"))

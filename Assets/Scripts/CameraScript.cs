@@ -88,12 +88,8 @@ public class CameraScript : MonoBehaviour
         transform.rotation = regularSlot.transform.rotation;
         isShooting = false;
     }
-<<<<<<< Updated upstream
-    
-=======
     public void SwapToBulletView()
     {
         scope.SetActive(false);
     }
->>>>>>> Stashed changes
 }
