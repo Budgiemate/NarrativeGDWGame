@@ -24,9 +24,12 @@ Shader "Liam/Fresnel"
             #pragma vertex vert
             #pragma fragment frag
 
+            //shadow stuff
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma shader_feature_local _UVSET_UV0 _UVSET_UV1
             
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
             struct Attributes
             {
@@ -42,6 +45,8 @@ Shader "Liam/Fresnel"
                 
                 float3 positionWS : TEXCOORD1;
                 float3 normalWS : TEXCOORD2;
+                
+                float4 shadowCoord : TEXCOORD3;
             };
 
             TEXTURE2D(_BaseMap);
@@ -66,6 +71,7 @@ Shader "Liam/Fresnel"
                 OUT.normalWS = nrmWS;
                 OUT.positionHCS = TransformWorldToHClip(posWS);
                 OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
+                OUT.shadowCoord = TransformWorldToShadowCoord(TransformObjectToWorld(IN.positionOS));
                 
                 return OUT;
             }
@@ -82,6 +88,15 @@ Shader "Liam/Fresnel"
                 float3 n = SafeNormalize(IN.normalWS);
                 float ndotv = saturate(dot(n, viewDirWS));
                 float fres = pow(1.0 - ndotv, _RimPower);
+                
+                //shadow stuff
+                Light mainLight = GetMainLight(IN.shadowCoord);
+                float NdotL = saturate(dot(n, mainLight.direction));
+                float3 diffuse = NdotL * mainLight.shadowAttenuation;
+                float3 ambient = SampleSH(n) * _BaseColor.rgb;
+                
+                color *= diffuse + ambient;
+                
                 color += (_RimColor.rgb * fres) * _RimStrength;
                 
                 return half4(color, 1.0);
