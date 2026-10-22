@@ -8,6 +8,7 @@ public class CameraScript : MonoBehaviour
     public GameObject sniperSlot;
     public GameObject regularSlot;
     public GameObject scope;
+    public GameObject note;
     public float sensitivity = 2.0f;    // Mouse speed
     public float minPitch = -10f;       // Angle limiter for bottom view
     public float maxPitch = 50f;        // Angle limiter for top view
@@ -78,6 +79,7 @@ public class CameraScript : MonoBehaviour
         scope.SetActive(true);
         transform.position = sniperSlot.transform.position;
         transform.rotation = sniperSlot.transform.rotation;
+        note.SetActive(false);
         isShooting = true;
         gameObject.GetComponent<Gun>().hasShot = false;
     }
