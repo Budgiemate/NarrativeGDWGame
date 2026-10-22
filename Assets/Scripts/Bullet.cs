@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
             {
                 StartCoroutine(QueenEnding());
             }
-            else if (collision.collider.name == "Kindergarden Teacher ")
+            else if (collision.collider.name == "Kindergarden Teacher")
             {
                 StartCoroutine(TeacherEnding());
             }
