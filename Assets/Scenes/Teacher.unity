@@ -772,7 +772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "An innocent contender at the boast games was shot and killed by a suspected hitman. The now deceased kindergarten teacher, Kathrine Victoria Jones, was taking part in the final round of the game show in hopes to win the grand prize to allow her to pay for her child's cancer treatment and schooling as well as to put more money towards her students with the most recent budget cuts to schools. A comment from the husband: \u201CWhy my Kathrine, she was the best, kindest person anyone could ever know. Whoever did this has no heart, no soul, how WHY could you take such an angel away from this world and away from all her children\u201D"
+  m_text: "An innocent contender at the boast games was shot and killed by a suspected hitman. The now deceased kindergarten teacher, Kathrine Victoria Jones, was taking part in the final round of the game show in hopes to win the grand prize to allow her to pay for her child's stage 3 pancreatic cancer treatment and schooling as well as to put more money towards her students with the most recent budget cuts to schools. A comment from the husband: \u201CWhy my Kathrine, she was the best, kindest person anyone could ever know. Whoever did this has no heart, no soul, how WHY could you take such an angel away from this world and away from all her children\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bdff28f54797fd4383eaa799668a641, type: 2}
   m_sharedMaterial: {fileID: 8257236226150811409, guid: 7bdff28f54797fd4383eaa799668a641, type: 2}
