@@ -18,6 +18,10 @@ public class SceneSwapper : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public static void NextScene(int sceneNum)
+    {
+        SceneManager.LoadScene(sceneNum);
+    }
     public void Exit()
     {
         Application.Quit();

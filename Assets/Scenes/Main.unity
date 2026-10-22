@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78d47a210a2ea4b96a4b51345f345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeIn
+  mainCam: {fileID: 0}
 --- !u!1 &109347864
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +708,6 @@ MonoBehaviour:
   maxPitch: 50
   minYaw: 270
   maxYaw: 330
-  drunkMultiplier: 0
 --- !u!114 &316387599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,6 +720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d711ac919ce6543806d2e2f4cc9b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 2492432594230866504, guid: 4d36691979c5f8e4080237cb4f17cdec, type: 3}
+  hasShot: 1
 --- !u!1 &405509028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,11 +1253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: feb7999c325201c42a0a8612e111deaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0814347
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: feb7999c325201c42a0a8612e111deaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0961242
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: feb7999c325201c42a0a8612e111deaa, type: 3}
       propertyPath: m_LocalPosition.z

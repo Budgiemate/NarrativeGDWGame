@@ -3,6 +3,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     GameObject victim;
+    public GameObject bulletPrefab;
+    public bool hasShot = true;
     void Update()
     {
         // Create a ray from the object's position in its forward direction
@@ -10,7 +12,7 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
 
         // Cast the ray up to 100 units
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, 100f) && !hasShot)
         {
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             if (hit.collider.CompareTag("Victim"))
@@ -22,6 +24,13 @@ public class Gun : MonoBehaviour
             {
                 victim.GetComponent<Target>().target = false;
             }
+        }
+        if (Input.GetMouseButtonDown(0) && !hasShot)
+        {
+            hasShot = true;
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+            gameObject.GetComponent<CameraScript>().SwapToBulletView();
+            
         }
     }
 }
