@@ -78,6 +78,8 @@ public class Bullet : MonoBehaviour
         BackgroundMusic.SwapMusic(BackgroundMusic.shankingS);
         yield return new WaitForSeconds(0.1f);
         cam.SwapToRegularView();
+        yield return new WaitForSeconds(5f);
+        SceneSwapper.NextScene(3);
     }
     IEnumerator MissEnding()
     {
