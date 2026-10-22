@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public float camX;
     public float camY;
     public float camZ;
+    public Animator animator;
     void Start()
     {
         MainCam = GameObject.Find("Main Camera");
@@ -40,8 +41,9 @@ public class Bullet : MonoBehaviour
             bulletMesh.SetActive(false);
             if (collision.collider.name == "MR BOAST")
             {
-
-                StartCoroutine(MrBoastEnding());
+                animator = collision.gameObject.GetComponent<Animator>();
+                animator.Play("Scene");
+                StartCoroutine(MrBoastEnding(animator));
             }
             else if (collision.collider.name == "The Queen")
             {
@@ -58,11 +60,12 @@ public class Bullet : MonoBehaviour
         }
         
     }
-    IEnumerator MrBoastEnding()
+    IEnumerator MrBoastEnding(Animator  anim)
     {
         MainCam.GetComponent<CameraScript>().isShooting = false;
         BackgroundMusic.SwapMusic(BackgroundMusic.dukeBoastS);
-        yield return new WaitForSeconds(1f);
+        anim.SetBool("IsExploding", true);
+        yield return new WaitForSeconds(5f);
         SceneSwapper.NextScene(2);
     }
     IEnumerator TeacherEnding()
