@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -39,21 +40,50 @@ public class Bullet : MonoBehaviour
             bulletMesh.SetActive(false);
             if (collision.collider.name == "MR BOAST")
             {
-                SceneSwapper.NextScene(2);
+
+                StartCoroutine(MrBoastEnding());
             }
             else if (collision.collider.name == "The Queen")
             {
-                cam.SwapToRegularView();
+                StartCoroutine(QueenEnding());
             }
             else if (collision.collider.name == "Kindergarden Teacher ")
             {
-                SceneSwapper.NextScene(4);
+                StartCoroutine(TeacherEnding());
             }
         }
         else
         {
-            SceneSwapper.NextScene(5);
+            StartCoroutine(MissEnding());
         }
         
+    }
+    IEnumerator MrBoastEnding()
+    {
+        MainCam.GetComponent<CameraScript>().isShooting = false;
+        BackgroundMusic.SwapMusic(BackgroundMusic.dukeBoastS);
+        yield return new WaitForSeconds(1f);
+        SceneSwapper.NextScene(2);
+    }
+    IEnumerator TeacherEnding()
+    {
+        MainCam.GetComponent<CameraScript>().isShooting = false;
+        BackgroundMusic.SwapMusic(BackgroundMusic.teacherS);
+        yield return new WaitForSeconds(1f);
+        SceneSwapper.NextScene(4);
+    }
+    IEnumerator QueenEnding()
+    {
+        MainCam.GetComponent<CameraScript>().isShooting = false;
+        BackgroundMusic.SwapMusic(BackgroundMusic.shankingS);
+        yield return new WaitForSeconds(0.1f);
+        cam.SwapToRegularView();
+    }
+    IEnumerator MissEnding()
+    {
+        MainCam.GetComponent<CameraScript>().isShooting = false;
+        isMoving = false;
+        yield return new WaitForSeconds(1f);
+        SceneSwapper.NextScene(5);
     }
 }

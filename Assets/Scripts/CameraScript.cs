@@ -26,6 +26,7 @@ public class CameraScript : MonoBehaviour
         SwapToRegularView();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        BackgroundMusic.SwapMusic(BackgroundMusic.mainThemeS);
     }
 
     // Update is called once per frame
