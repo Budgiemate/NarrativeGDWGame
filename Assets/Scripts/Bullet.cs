@@ -65,7 +65,7 @@ public class Bullet : MonoBehaviour
         MainCam.GetComponent<CameraScript>().isShooting = false;
         BackgroundMusic.SwapMusic(BackgroundMusic.dukeBoastS);
         anim.SetBool("IsExploding", true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         SceneSwapper.NextScene(2);
     }
     IEnumerator TeacherEnding()
