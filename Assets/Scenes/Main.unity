@@ -1810,10 +1810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214cd7f2e393fd14b878b2006c9a1102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusic
-  dukeBoast: {fileID: 0}
-  shanking: {fileID: 0}
-  teacher: {fileID: 0}
-  mainTheme: {fileID: 0}
+  dukeBoast: {fileID: 8300000, guid: 8386a145be6748c4eb3b1e79335ec2b9, type: 3}
+  shanking: {fileID: 8300000, guid: 4aeb0742e19f2a9459e1713c292302ba, type: 3}
+  teacher: {fileID: 8300000, guid: 599040ec37a9aca45bc80080e1f4840b, type: 3}
+  mainTheme: {fileID: 8300000, guid: 376a546c803542a4ba095b1116bf06d7, type: 3}
 --- !u!4 &1815999928
 Transform:
   m_ObjectHideFlags: 0
