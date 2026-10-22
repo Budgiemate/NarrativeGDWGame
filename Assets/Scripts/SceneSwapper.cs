@@ -14,7 +14,7 @@ public class SceneSwapper : MonoBehaviour
     {
         
     }
-    public void PlayGame()
+    public static void PlayGame()
     {
         SceneManager.LoadScene(1);
     }
