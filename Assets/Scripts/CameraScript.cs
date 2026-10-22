@@ -48,8 +48,8 @@ public class CameraScript : MonoBehaviour
             //Randomize the drunken shake
             if (duration <= 0f)
             {
-                drunkYaw = Random.Range(-0.1f,0.1f);
-                drunkPitch = Random.Range(-0.1f,0.1f);
+                drunkYaw = Random.Range(-0.05f,0.05f);
+                drunkPitch = Random.Range(-0.05f,0.05f);
                 duration = 0.3f;
             }
             
