@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     bool isMoving = true;
     public GameObject bulletMesh;
+    public float shankPower;
     private CameraScript cam;
     public float bulletSpeed;
     public float bulletRotateSpeed;
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
     {
         MainCam = GameObject.Find("Main Camera");
         cam = MainCam.GetComponent<CameraScript>();
+        MainCam.transform.LookAt(transform.position);
     }
 
     // Update is called once per frame
@@ -26,7 +28,8 @@ public class Bullet : MonoBehaviour
         
         if (isMoving)
         {
-            MainCam.transform.LookAt(transform.position);   
+            MainCam.GetComponent<CameraScript>().isShooting = false;
+            
             MainCam.transform.position = new Vector3(transform.position.x + camX, transform.position.y + camY, transform.position.z + camZ);
             transform.position += transform.forward * Time.deltaTime*bulletSpeed;
             bulletMesh.transform.Rotate(new Vector3(0, bulletRotateSpeed, 0  * Time.deltaTime));
@@ -65,23 +68,24 @@ public class Bullet : MonoBehaviour
         MainCam.GetComponent<CameraScript>().isShooting = false;
         BackgroundMusic.SwapMusic(BackgroundMusic.dukeBoastS);
         anim.SetBool("IsExploding", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.1f);
         SceneSwapper.NextScene(2);
     }
     IEnumerator TeacherEnding()
     {
         MainCam.GetComponent<CameraScript>().isShooting = false;
         BackgroundMusic.SwapMusic(BackgroundMusic.teacherS);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         SceneSwapper.NextScene(4);
     }
     IEnumerator QueenEnding()
     {
         MainCam.GetComponent<CameraScript>().isShooting = false;
+        MainCam.GetComponent<CameraScript>().shanker.SetActive(true);
         BackgroundMusic.SwapMusic(BackgroundMusic.shankingS);
         yield return new WaitForSeconds(0.1f);
         cam.SwapToRegularView();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         SceneSwapper.NextScene(3);
     }
     IEnumerator MissEnding()

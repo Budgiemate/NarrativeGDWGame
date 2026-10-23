@@ -48,12 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   bulletMesh: {fileID: 2814620048765154695}
+  shankPower: 50
   bulletSpeed: 5.55
   bulletRotateSpeed: 6.29
   MainCam: {fileID: 0}
   camX: 3
-  camY: 2
-  camZ: 0
+  camY: 1.5
+  camZ: -2
+  animator: {fileID: 0}
 --- !u!136 &8801216289782367348
 CapsuleCollider:
   m_ObjectHideFlags: 0

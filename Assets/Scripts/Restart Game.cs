@@ -13,7 +13,7 @@ public class RestartGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SceneSwapper.PlayGame();
+            //SceneSwapper.PlayGame();
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {

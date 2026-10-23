@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     public GameObject regularSlot;
     public GameObject scope;
     public GameObject note;
+    public GameObject shanker;
     public float sensitivity = 2.0f;    // Mouse speed
     public float minPitch = -10f;       // Angle limiter for bottom view
     public float maxPitch = 50f;        // Angle limiter for top view
@@ -25,6 +26,7 @@ public class CameraScript : MonoBehaviour
     {
         SwapToRegularView();
         Cursor.visible = false;
+        shanker.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         BackgroundMusic.SwapMusic(BackgroundMusic.mainThemeS);
     }
